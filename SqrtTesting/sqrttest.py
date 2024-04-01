@@ -7,10 +7,9 @@ START_BASE = 2
 END_BASE = 11
 
 def approx_sqrt(num, base):
-    #print(f"Base of {num} is {base} and half it's length is {len(str(num)) / 2}")
+    print(f"Half-Length {len(str(num)) / 2}")
     print(f"Num is {num} (Base {base})")
-    return math.floor(num / math.pow(base, len(str(num)) / 2))
-
+    return int(str(num), base) / math.pow(base, len(str(num)) / 2)
 def actual_sqrt(num, base):
     num = int(str(num), base)
     print(f"Num is {num}")
@@ -28,4 +27,4 @@ def compare_accuracy(approx_func, actual_func, value, base):
         return accuracy_percentage
 
 if __name__ == "__main__":
-    print(compare_accuracy(approx_sqrt, actual_sqrt, 111, 2))
+    print(100 - compare_accuracy(approx_sqrt, actual_sqrt, 1, 1.5))
